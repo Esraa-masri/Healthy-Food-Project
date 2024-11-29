@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/CSS/dashborad.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style> 
+    .main-content {
+         flex: 1; 
+        padding: 50px;
+        overflow-y: auto; 
+    } 
+    .form-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 10px;
+        width: 1000hv;
+    }
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+    }
+    input, textarea, select {
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
+        padding: 7px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    button {
+        background-color: peru;
+        margin: 2px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+    button:hover {
+        background-color:rgb(235, 165, 95);
+    }
+    .dish-list {
+        margin-top: 20px;
+    }
+    .dish-item {
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 10px 0;
+    }
+    .dish-name {
+        font-weight: bold;
+    }
+    .dish-description {
+        color: #555;
+        margin-right: 20px;
+        flex-grow: 1;
+        display: block;
+    }
+        
+    </style>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="Home.html">DashBorad</a>
+        <button class="btn btn-link" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Account</a></li>
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul> 
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Home</div>
+                        <a class="nav-link" href="Home.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Pages
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#p1.html"  onclick="gotoP1()" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                   Menu
+                                </a>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    Offers and discounts
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#order.html"  onclick="gotoOrder()" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fa fa-credit-card" style="font-size: 18px;"></i>
+                            </div>
+                            Order
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="material-icons" style="font-size: 18px;">message</i>
+
+                            </div>
+                            Notes
+                          </a>                           
+                    </div>
+                </div>
+            </nav>
+        </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Menu List</h1>
+                <div class="main-content">
+                    <h1>إضافة طبق طعام جديد</h1>
+                    <div class="form-container">
+                        <form id="dishForm">
+                            <input type="text" id="dishName" placeholder="اسم الطبق" required>
+                            <input type="number" id="dishPrice" placeholder="السعر" required>
+                            <textarea id="dishDescription" placeholder="وصف الطبق" required></textarea>
+                            <textarea id="dishIngredients" placeholder="المكونات" required></textarea>
+                            <select id="dishCategory" required>
+                                <option value="">اختر تصنيف الطبق</option>
+                                <option value="خالي من الجلوتين">خالي من الجلوتين</option>
+                                <option value="منخفض الكربوهيدرات">منخفض الكربوهيدرات</option>
+                                <option value="عالي البروتين">عالي البروتين</option>
+                            </select>
+                            <select id="dishType" required>
+                                <option value="">اختر نوع الطبق</option>
+                                <option value="نباتي">نباتي</option>
+                                <option value="حيواني">حيواني</option>
+                                <option value="تخفيف الوزن">تخفيف الوزن</option>
+                                <option value="زيادة الوزن">زيادة الوزن</option>
+                                <option value="الحفاظ على الوزن">الحفاظ على الوزن</option>
+                            </select>
+                            <select id="dishAllergens" required>
+                                <option value="">اختر التحذيرات الغذائية</option>
+                                <option value="لا توجد تحذيرات">لا توجد تحذيرات</option>
+                                <option value="يحتوي على الجلوتين">يحتوي على الجلوتين</option>
+                                <option value="يحتوي على المكسرات">يحتوي على المكسرات</option>
+                                <option value="يحتوي على الألبان">يحتوي على الألبان</option>
+                            </select>
+                            <select id="dishCalories" required>
+                                <option value="">اختر السعرات الحرارية</option>
+                                <option value="أقل من 100">أقل من 100 سعر حراري</option>
+                                <option value="100-200">100-200 سعر حراري</option>
+                                <option value="200-300">200-300 سعر حراري</option>
+                                <option value="300-400">300-400 سعر حراري</option>
+                                <option value="أكثر من 400">أكثر من 400 سعر حراري</option>
+                            </select>
+                            <input type="number" id="dishProtein" placeholder="كمية البروتين (جرام)" required>
+                            <button type="button" id="addDishButton" onclick="addDish()">إضافة طبق</button>
+                        </form>
+
+                        <div class="dish-list" id="dishList"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/JS/java2.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script>
+        let dishes = [];
+
+        function addDish() {
+            const name = document.getElementById('dishName').value;
+            const price = document.getElementById('dishPrice').value;
+            const description = document.getElementById('dishDescription').value;
+            const ingredients = document.getElementById('dishIngredients').value;
+            const category = document.getElementById('dishCategory').value;
+            const type = document.getElementById('dishType').value;
+            const allergens = document.getElementById('dishAllergens').value;
+            const calories = document.getElementById('dishCalories').value;
+            const protein = document.getElementById('dishProtein').value;
+
+            const dish = {
+                name, price, description, ingredients, category, type, allergens, calories, protein
+            };
+
+            dishes.push(dish)      //مسح البيانات التي قمت بإضافتها الى النموذج
+            clearForm();
+         
+            displayDishes();
+        }
+
+        function displayDishes() {
+            const dishList = document.getElementById('dishList');
+            // Clear the dish list before displaying updated dishes
+            dishList.innerHTML = '';
+
+            dishes.forEach((dish, index) => {
+                const dishItem = document.createElement('div');
+                dishItem.className = 'dish-item';
+                dishItem.innerHTML = `
+                    <h3>${dish.name}</h3>
+                    <p>السعر: ${dish.price} s.p</p>
+                    <p>الوصف: ${dish.description}</p>
+                    <p>المكونات: ${dish.ingredients}</p>
+                    <p>التصنيف: ${dish.category}</p>
+                    <p>النوع: ${dish.type}</p>
+                    <p>التحذيرات الغذائية: ${dish.allergens}</p>
+                    <p>السعرات الحرارية: ${dish.calories}</p>
+                    <p>البروتين: ${dish.protein} جرام</p>
+                    <button onclick="editDish(${index})">تعديل</button>
+                    <button onclick="deleteDish(${index})">حذف</button>
+                `;
+                dishList.appendChild(dishItem);
+            });
+        }
+
+        function clearForm() {
+            document.getElementById('dishForm').reset();
+        }
+
+        function editDish(index) {
+            const dish = dishes[index];
+            document.getElementById('dishName').value = dish.name;
+            document.getElementById('dishPrice').value = dish.price;
+            document.getElementById('dishDescription').value = dish.description;
+            document.getElementById('dishIngredients').value = dish.ingredients;
+            document.getElementById('dishCategory').value = dish.category;
+            document.getElementById('dishType').value = dish.type;
+            document.getElementById('dishAllergens').value = dish.allergens;
+            document.getElementById('dishCalories').value = dish.calories;
+            document.getElementById('dishProtein').value = dish.protein;
+
+            //عند التعديل على الطبق
+            dishes.splice(index, 1);
+            displayDishes();
+        }
+
+        function deleteDish(index) {
+            dishes.splice(index, 1);
+            displayDishes();
+        }
+    </script>
+</body>
+</html>
