@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/CSS/register.css">
+</head>
+<body>
+    <div class="signup">
+        <div class="form-box ">
+    <h2>Register</h2>
+    <form id="registerForm">
+        <div class="form-group">
+           Name: <input type="text" id="name"  placeholder="please enter your name" required>
+        </div>
+    
+        <div class="form-group">
+           Email: <input type="email" id="email" placeholder=" please enter your email" required>
+        </div>
+  
+        <div class="form-group">
+           Password: <input type="password" id="password"placeholder=" please enter your password" required>
+        </div>
+
+        <div class="form-group">
+           Age: <input type="number" id="age" placeholder="please enter your age" required>
+         </div>
+
+         <div class="form-group">
+            Weight: <input type="number" id="weight"  placeholder="please enter your weight" required>
+          </div>
+          <div class="form-group">
+
+          <select id="gender" name="gender" required >
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        </div>
+        <div class="remember">
+            <button type="submit" class="btn" id="btn" >Register</button>
+        </div>
+    
+        <div class="login-register">
+            <p>Already have an account ?
+                <a href="login.html" class="register-link">login</a> 
+            </p>
+        </div>
+    </form>
+        </div>
+       </div>
+
+       <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const age = document.getElementById("age").value;
+            const weight = document.getElementById("weight").value;
+            const gender = document.getElementById("gender").value;
+
+
+
+
+    
+            if (!name || !email || !password || !age || !weight || !gender) {
+                alert("يرجى ملء جميع الحقول");
+                return;
+            }
+            alert("تم تسجيل الدخول بنجاح");
+            window.location.href = "home.html"; 
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/CSS/login.css">
+</head>
+<body>
+   <div class="signup">
+    <div class="form-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                Email: <input type="email" id="email" placeholder="please enter your email" required>
+            </div>
+            <br>
+            <div class="form-group">
+                Password: <input type="password" id="password" placeholder="please enter your password" required>
+            </div>
+            <br>
+            <div class="remember">
+                <input type="checkbox"> Remember me<br><br>
+                <button type="submit" class="btn">Login</button>
+            </div>
+            <div class="login-register">
+                <p>Don’t have an account?
+                    <a href="register.html" class="register-link">Register</a> 
+                </p>
+            </div>
+        </form>
+    </div>
+   </div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (!email || !password) {
+            alert("يرجى ملء جميع الحقول");
+            return;
+        }
+        alert("تم تسجيل الدخول بنجاح!");
+        window.location.href = "home.html";
+    });
+</script>
+    
+</body>
+</html>
