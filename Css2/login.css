@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(/image/pexels-ella-olsson-572949-1640774.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.signup{
+    position:relative;
+    width:350px;
+    height: 350px;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    backdrop-filter:blur(15px);
+    box-shadow: 0 0 25px lightgoldenrodyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+color: orangered;
+
+   
+}
+
+
+.form-box h2{
+    font-size: 40px;
+    text-align: center;
+    font-style: italic;
+
+}
+
+.form-group {
+    color:orangered;
+    font-size: 20px;
+    margin: 2px;
+ 
+}
+
+.form-group input {
+    width: 100%;
+    height: 100%;
+   font-size: 16px;
+}
+
+.remember{
+    color:black;
+}
+.remember .btn{
+  width: 100%;
+  height: 35px;
+  background-color: lightsalmon;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  font-size: 20px;
+  color: antiquewhite;
+}
+
+.login-register {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+}
+
+
+.login-register p a {
+    color:rgb(44, 29, 29);
+    text-decoration: none;
+    font-weight: 700;
+
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}

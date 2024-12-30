@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+ }
+ 
+ body{
+     
+     background-image: url(/image/pexels-polina-tankilevitch-4519014.jpg);
+     font-size: 20px;
+     
+ 
+  
+ }
+ .menu{
+     width: 50%;
+     margin: auto;
+     background-color:beige;
+ 
+ }
+ 
+ h1{
+     text-align: center;
+      color:black;
+     padding: 30px;
+     font-size: 60px;
+     
+ 
+ }
+ .section{
+     margin-bottom:20px;
+ }
+ .section h2{
+     color:brown;
+     font-style: italic;
+     text-align: center;
+     font-size: 50px;
+    
+ }
+ 
+ .food-item{
+     background: white;
+     border: 3px dotted brown;
+     padding: 10px;
+     margin-bottom: 10px;
+     display: flex;
+     flex-direction:column;
+     align-items: center;
+    
+     
+     
+    
+ }
+ 
+ .food-item img{
+     width: 200px;
+     height: 200px;
+     border-radius: 100px;
+ }
+ 
+ 
+ .food-item h3{
+     color:sienna;
+     font-size: 30px;
+     
+ }
+ .food-item .decrement{
+    width: 20px;
+ 
+ }
+ .food-item .increment{
+     width: 20px;
+ }
+ 
+ 
+ button{
+     margin: 5px;
+ }
+ .order-button{
+     width: 40%;
+     padding:10px;
+     background-color:beige;
+     color: black;
+     border-radius: 10px;
+     
+ }
+ .order{
+     width: 100%;
+     padding: 20px;
+     background-color:lightsalmon;
+     font-weight: 600;
+     border-radius: 10px;
+ }
+ .back-button {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius:100%;
+    background-color: orangered;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+}

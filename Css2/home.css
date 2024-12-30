@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(/image/pexels-polina-tankilevitch-4519014.jpg); 
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 ;
+}
+
+.box {
+    background-color:mintcream; 
+    border: 1px solid orange;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 10px;
+    text-align: center;
+    width: 150px; 
+    text-decoration: none;
+    color: black;
+    transition: transform 0.2s;
+}
+
+.box:hover {
+    transform: scale(1.05); 
+}
+

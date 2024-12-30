@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html{
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url(/image/pexels-ella-olsson-572949-1640774.jpg);
+    background-size: cover;
+    padding: 20px;
+}
+
+h1{
+    font-size: 53px;
+    margin-top: 220px;
+   
+}
+p{
+    font-size: 30px;
+    margin: 20px ;
+}
+.primary-text{
+    color:orangered;
+
+}
+
+.button{
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    border: 2px solid orangered;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    margin: 20px 550px;
+}
+   
+
+
+.button:hover{
+    background-color:tomato;
+}
