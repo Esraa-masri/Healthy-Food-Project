@@ -17,8 +17,8 @@ function GotoChart(){
 function GotoNote(){
     window.location.href = "Note.html";
 }
-function GotoReports(){
-    window.location.href = "Reports.html";
+function gotoReports(){
+    window.location.href = "reports.html";
 }
 //لفتح وتسكير الsidebar
 const sidebarToggle = document.body.querySelector('#sidebarToggle');
