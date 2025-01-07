@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard/Employee</title>
+        <link rel="stylesheet" href="/CSS/dashborad.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+             body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin-top: 50px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: peru;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        .icon {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background-color: peru;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: rgb(240, 176, 111);
+        }
+        </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="home.html">DashBorad</a>
+            <button class="btn btn-link" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Account</a></li>
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Home</div>
+                            <a class="nav-link" href="Home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="Menu.html" onclick="GotoMenu()" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                       Menu
+                                    </a>
+                                    <a class="nav-link collapsed" href="offers.html" onclick="gotoOffers()" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Offers and discounts
+                                    </a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="Order.html"  onclick="gotoOrder()" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="material-icons">&#xe5d2;</i>
+                                </div>
+                                Order
+                            </a>
+                            <a class="nav-link collapsed" href="Notes.html" onclick="GotoNote()" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="material-icons" style="font-size: 18px;">message</i>
+                                </div>
+                                Notes
+                              </a>                           
+                        </div>
+                    </div>
+                </nav>
+            </div>         
+           <div id="layoutSidenav_content">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-pencil-alt icon"></i>
+                        <h5>ملاحظات الموظف</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="notesForm">
+                            <div class="form-group">
+                                <label for="employeeName">اسم الموظف</label>
+                                <input type="text" class="form-control" id="employeeName" placeholder="الاسم " required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeEmail">البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="employeeEmail" placeholder=" البريد الإلكتروني" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeNote">الملاحظة</label>
+                                <textarea class="form-control" id="employeeNote" rows="5" placeholder="اكتب ملاحظتك هنا..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">إرسال الملاحظة</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           </div>  
+          <script src="/JS/java2.js"></script>
+          <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+          <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+          </body> <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          <script>
+              // معالجة إرسال النموذج
+              document.getElementById('notesForm').addEventListener('submit', function(event) {
+                  event.preventDefault(); // منع إعادة تحميل الصفحة
+      
+                  // الحصول على القيم المدخلة
+                  const name = document.getElementById('employeeName').value;
+                  const email = document.getElementById('employeeEmail').value;
+                  const note = document.getElementById('employeeNote').value;
+      
+                  // هنا يمكنك إضافة الكود لإرسال الملاحظات إلى المدير (مثل استخدام AJAX أو Fetch API)
+      
+                  // عرض رسالة تأكيد
+                  alert(`تم إرسال الملاحظة بنجاح!\n\nاسم الموظف: ${name}\nالبريد الإلكتروني: ${email}\nالملاحظة: ${note}`);
+      
+                  // إعادة تعيين النموذج
+                  document.getElementById('notesForm').reset();
+              });
+          </script>
+          </html>
