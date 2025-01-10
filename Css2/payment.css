@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header {
+    background-color: orangered;
+    padding: 20px;
+    color: white;
+    font-size: 36px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.container {
+    padding: 30px;
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 0 20px wheat; 
+    text-align: center;
+    margin-top: 20px; 
+    width: 500px;
+}
+.button {
+    margin: 15px;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px; 
+    background-color: orangered;
+    color: white; 
+    transition: background-color 0.3s;
+}
+.button:hover {
+    background-color: darkorange;
+}
+.hidden {
+    display: none;
+}
+.back-button {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: orangered;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.box {
+    width: 80%; 
+    padding: 10px;
+    margin: 8px auto;
+    border: 1px solid gray; 
+    border-radius: 5px;
+}
+
+.payment-methods {
+    display: flex; 
+    margin: 10px; 
+}
