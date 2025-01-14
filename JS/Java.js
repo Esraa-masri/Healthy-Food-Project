@@ -11,9 +11,9 @@ function GotoEmployee(){
 function OffersPage(){
     window.location.href = "order.html";
 }
-function GotoChart(){
-    window.location.href = "charts.html";
-}
+// function GotoChart(){
+//     window.location.href = "charts.html";
+// }
 function GotoNote(){
     window.location.href = "Note.html";
 }
