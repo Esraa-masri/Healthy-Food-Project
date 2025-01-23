@@ -10,7 +10,7 @@
     <div class="header">Payment</div> 
     <div class="container">
         <label for="amount">Amount:</label> 
-        <input type="number" class="box" id="amount">
+        <input type="number" class="box" id="amount" readonly>
         <div>
             <button class="button" id="confirmButton">Confirm Order</button>  
             <button class="button" id="rejectButton">Reject Order</button> 
@@ -36,6 +36,9 @@
     <a href="home.html" class="back-button">Back</a>
 
     <script>
+        const totalPrice = localStorage.getItem("totalPrice") || 0;
+        document.getElementById('amount').value = totalPrice; 
+
         document.getElementById('confirmButton').addEventListener('click', function() {
             document.getElementById('paymentOptions').classList.remove('hidden');
         });
