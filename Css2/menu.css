@@ -93,9 +93,9 @@ button{
     color: yellow;
 }
 .back-button {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
     border-radius:100%;
@@ -105,4 +105,5 @@ button{
     line-height: 60px;
     cursor: pointer;
     text-decoration: none;
+     z-index: 1000; 
 }
