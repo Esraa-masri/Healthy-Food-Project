@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="/Css2/Reviews.css">
+</head>
+<body>
+    <div class="header">Reviews</div>
+
+    <div class="rating">
+        <h3>How would you rate healthy food?</h3>
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+        <div class="thank-you-message" id="thankYouMessage">Thank you for sharing with us!</div>
+    </div>
+
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        let isRated = false;
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                if (!isRated) {
+                    const ratingValue = star.getAttribute('data-value');
+                    stars.forEach(s => {
+                        s.classList.remove('selected');
+                    });
+                    for (let i = 0; i < ratingValue; i++) {
+                        stars[i].classList.add('selected');
+                    }
+                    thankYouMessage.style.display = 'block'; 
+                    isRated = true; 
+                }
+            });
+        });
+    </script>
+</body>
+</html>
