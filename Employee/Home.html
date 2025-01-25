@@ -6,16 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard/Employee</title>
+        <title>Dashboard/Admin</title>
         <link rel="stylesheet" href="/CSS/dashborad.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand ps-3" href="home.html">DashBorad</a>
+            <a class="navbar-brand ps-3" href="Home.html">DashBorad</a>
             <button class="btn btn-link" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -23,13 +25,12 @@
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Account</a></li>
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="Account.html">Account</a></li>
+                        <li><a class="dropdown-item" href="Login.html">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,51 +44,109 @@
                             <a class="nav-link" href="Home.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="material-icons" style="font-size: 18px;">people</i>
+                                </div>
                                 Pages
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#Menu.html" onclick="GotoMenu()" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                       Menu
-                                    </a>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Offers and discounts
-                                    </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="Menu.html" onclick="GotoMenu()">Menu</a>
+                                    <a class="nav-link"href="offers.html" onclick="gotoOffers()">Offers and discounts</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#Order.html"  onclick="gotoOrder()" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link collapsed" href="Order.html"  onclick="gotoOrder()" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="material-icons">&#xe5d2;</i>
                                 </div>
                                 Order
                             </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link collapsed"  href="Notes.html" onclick="GotoNote()" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="material-icons" style="font-size: 18px;">message</i>
                                 </div>
                                 Notes
-                              </a>                           
-                        </div>
+                            </a>
                     </div>
                 </nav>
             </div>
-          </div>
-          <!--for employe-->
-          <!-- <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">Dashboard</h1>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-primary text-white mb-4">
-                            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <section id="content">
+<!--comment-->
+                            <main>            
+                                <div class="table-data">
+                                    <div class="order">
+                                        <div class="head">
+                                            <h3>Recent Orders</h3>
+                                            <i class='bx bx-search' ></i>
+                                            <i class='bx bx-filter' ></i>
+                                        </div>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>User</th>
+                                                    <th>Date Order</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img src="img/people.png">
+                                                        <p>John Doe</p>
+                                                    </td>
+                                                    <td>01-10-2021</td>
+                                                    <td><span class="status completed">Completed</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <img src="img/people.png">
+                                                        <p>John Doe</p>
+                                                    </td>
+                                                    <td>01-10-2021</td>
+                                                    <td><span class="status pending">Pending</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <img src="img/people.png">
+                                                        <p>John Doe</p>
+                                                    </td>
+                                                    <td>01-10-2021</td>
+                                                    <td><span class="status process">Process</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <img src="img/people.png">
+                                                        <p>John Doe</p>
+                                                    </td>
+                                                    <td>01-10-2021</td>
+                                                    <td><span class="status pending">Pending</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <img src="img/people.png">
+                                                        <p>John Doe</p>
+                                                    </td>
+                                                    <td>01-10-2021</td>
+                                                    <td><span class="status completed">Completed</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </main>
+                        </section>
                         </div>
                     </div>
-                </div> -->
-          <script src="/JS/java2.js"></script>
-          <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-          <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-          </body>
-          </html>
+                </main>
+            </div>
+        </div>
+        <script src="/JS/java2.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        
+    </body>
+</html>
