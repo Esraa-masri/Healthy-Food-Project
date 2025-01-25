@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders</title>
+    <link rel="stylesheet" href="/Css2/order.css">
+</head>
+
+<body>
+    <div class="order-summary">
+        <h1>Your Orders</h1>
+        <div id="order-list"></div>
+        <h2>Total Amount: <span id="total-price">0</span></h2>
+        <a href="home.html" class="back-button">Back</a>
+        <a href="payment.html" class="confirm-button">Done</a> 
+    </div>
+
+    <script>
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+        const totalPrice = localStorage.getItem("totalPrice") || 0;
+        
+        const orderList = document.getElementById("order-list");
+        orders.forEach(order => {
+            const orderItem = document.createElement("div");
+            orderItem.className = "order-item";
+            orderItem.innerText = `${order.name} - Price: ${order.price} - Quantity: ${order.quantity}`;
+            orderList.appendChild(orderItem);
+        });
+
+    
+        document.getElementById("total-price").innerText = totalPrice;
+      
+    </script>
+</body>
+
+</html>
