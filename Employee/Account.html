@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة حساب الموظف</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    font-size: 1.1em;
+}
+
+.modal-header {
+    background-color:#8ebdf0;
+    color: white;
+}
+
+.modal-footer .btn {
+    width: 100px;
+}
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Account Employee</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5>معلومات الموظف</h5>
+                <p><strong>الاسم:</strong> <span id="employeeName"> احمد</span></p>
+                <p><strong>الوظيفة:</strong> <span id="employeeJob">مساعد طباخ</span></p>
+                <p><strong>القسم:</strong> <span id="employeeDepartment">قسم االمطبخ</span></p>
+                <p><strong>البريد الإلكتروني:</strong> <span id="employeeEmail">ahmed@example.com</span></p>
+                <p><strong>رقم الهاتف:</strong> <span id="employeePhone">123456789</span></p>
+                <p><strong>تاريخ التوظيف:</strong> <span id="employeeHireDate">01-01-2020</span></p>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#editModal">تعديل البيانات</button>
+                <button class="btn btn-secondary" data-toggle="modal" data-target="#changePasswordModal">تغيير كلمة المرور</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- تعديل البيانات Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">تعديل البيانات</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input type="text" class="form-control" id="name" value="أحمد محمد">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" value="ahmed@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="text" class="form-control" id="phone" value="123456789">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary" id="saveChanges">حفظ التغييرات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تغيير كلمة المرور Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordModalLabel">تغيير كلمة المرور</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="changePasswordForm">
+                        <div class="form-group">
+                            <label for="currentPassword">كلمة المرور الحالية</label>
+                            <input type="password" class="form-control" id="currentPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">كلمة المرور الجديدة</label>
+                            <input type="password" class="form-control" id="newPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmNewPassword">تأكيد كلمة المرور الجديدة</label>
+                            <input type="password" class="form-control" id="confirmNewPassword" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary" id="changePassword">تغيير كلمة المرور</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('saveChanges').addEventListener('click', function() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    document.getElementById('employeeName').innerText = name;
+    document.getElementById('employeeEmail').innerText = email;
+    document.getElementById('employeePhone').innerText = phone;
+
+    $('#editModal').modal('hide');
+});
+
+document.getElementById('changePassword').addEventListener('click', function() {
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+    if (newPassword === confirmNewPassword) {
+        alert('تم تغيير كلمة المرور بنجاح!');
+        $('#changePasswordModal').modal('hide');
+    } else {
+        alert('كلمة المرور الجديدة وتأكيد كلمة المرور لا تتطابقان.');
+    }
+});
+    </script>
+</body>
+</html>
